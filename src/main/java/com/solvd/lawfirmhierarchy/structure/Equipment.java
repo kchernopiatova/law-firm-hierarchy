@@ -1,4 +1,4 @@
-package com.solvd.lawfirmhierarchy;
+package com.solvd.lawfirmhierarchy.structure;
 
 public class Equipment {
 

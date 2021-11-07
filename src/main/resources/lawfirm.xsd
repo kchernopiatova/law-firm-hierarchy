@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="lawfirm" type="lawfirmType"/>
+  <xs:complexType name="lawyerType">
+    <xs:sequence>
+      <xs:element name="firstName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Alexei"/>
+            <xs:enumeration value="Lilian"/>
+            <xs:enumeration value="Chris"/>
+            <xs:enumeration value="Eva"/>
+            <xs:enumeration value="Egor"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="lastName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Kievets"/>
+            <xs:enumeration value="Viex"/>
+            <xs:enumeration value="Novik"/>
+            <xs:enumeration value="Green"/>
+            <xs:enumeration value="Mig"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="dob">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1985-07-20"/>
+            <xs:enumeration value="1990-11-05"/>
+            <xs:enumeration value="1968-12-15"/>
+            <xs:enumeration value="1979-01-24"/>
+            <xs:enumeration value="1992-08-02"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="experience">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="9"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="20"/>
+            <xs:enumeration value="13"/>
+            <xs:enumeration value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lawyersType">
+    <xs:sequence>
+      <xs:element type="lawyerType" name="lawyer" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="equipmentType">
+    <xs:sequence>
+      <xs:element name="type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Computer"/>
+            <xs:enumeration value="Phone"/>
+            <xs:enumeration value="Printer"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="number">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="6"/>
+            <xs:enumeration value="9"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="7"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="id" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="equipmentsType">
+    <xs:sequence>
+      <xs:element type="equipmentType" name="equipment" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="officeType">
+    <xs:sequence>
+      <xs:element name="city">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Minsk"/>
+            <xs:enumeration value="Brest"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="lawyersType" name="lawyers"/>
+      <xs:element type="equipmentsType" name="equipments"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="clientType">
+    <xs:sequence>
+      <xs:element name="lastname">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Melnik"/>
+            <xs:enumeration value="Subbotko"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="casetype">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Civil"/>
+            <xs:enumeration value="Criminal"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="lawyerType" name="lawyer"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="caseType">
+    <xs:sequence>
+      <xs:element name="dateofconclusion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="2021-07-11"/>
+            <xs:enumeration value="2021-05-02"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="clientType" name="client"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="contractnumber" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="lawfirmType">
+    <xs:sequence>
+      <xs:element type="officeType" name="office" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element type="caseType" name="case" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

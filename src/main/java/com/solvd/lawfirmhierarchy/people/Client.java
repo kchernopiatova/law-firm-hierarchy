@@ -1,4 +1,4 @@
-package com.solvd.lawfirmhierarchy;
+package com.solvd.lawfirmhierarchy.people;
 
 public class Client {
 

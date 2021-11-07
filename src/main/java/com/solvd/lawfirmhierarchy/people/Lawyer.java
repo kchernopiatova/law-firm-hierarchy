@@ -1,12 +1,21 @@
-package com.solvd.lawfirmhierarchy;
+package com.solvd.lawfirmhierarchy.people;
 
 import java.time.LocalDate;
 
 public class Lawyer {
 
+    private String firstName;
     private String lastName;
     private LocalDate dob;
     private Integer experience;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
     public String getLastName() {
         return lastName;

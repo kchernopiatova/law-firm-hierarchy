@@ -1,4 +1,6 @@
-package com.solvd.lawfirmhierarchy;
+package com.solvd.lawfirmhierarchy.cases;
+
+import com.solvd.lawfirmhierarchy.people.Client;
 
 import java.time.LocalDate;
 

@@ -27,6 +27,4 @@
             <version>${log4jversion}</version>
         </dependency>
     </dependencies>
-
-
 </project>

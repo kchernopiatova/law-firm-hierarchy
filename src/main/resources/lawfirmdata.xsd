@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="lawfirm">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="office" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="city" type="xs:string"/>
+                            <xs:element name="lawyers">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="lawyer" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="firstname" type="xs:string"/>
+                                                    <xs:element name="lastname" type="xs:string"/>
+                                                    <xs:element name="dob" type="xs:date"/>
+                                                    <xs:element name="experience" type="xs:integer"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="equipments">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="equipment" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="type" type="xs:string"/>
+                                                    <xs:element name="number" type="xs:integer"/>
+                                                </xs:sequence>
+                                                <xs:attribute name="id" type="xs:integer"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="case" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="dateofconclusion" type="xs:date"/>
+                            <xs:element name="client">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="lastname" type="xs:string"/>
+                                        <xs:element name="casetype" type="xs:string"/>
+                                        <xs:element name="lawyer">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="firstname" type="xs:string"/>
+                                                    <xs:element name="lastname" type="xs:string"/>
+                                                    <xs:element name="dob" type="xs:date"/>
+                                                    <xs:element name="experience" type="xs:integer"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="contractnumber" type="xs:string"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

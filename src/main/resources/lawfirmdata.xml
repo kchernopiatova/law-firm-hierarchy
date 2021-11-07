@@ -1,0 +1,92 @@
+
+<lawfirm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="lawfirmdata.xsd">
+    <office>
+        <city>Minsk</city>
+        <lawyers>
+            <lawyer>
+                <firstname>Alexei</firstname>
+                <lastname>Kievets</lastname>
+                <dob>1985-07-20</dob>
+                <experience>9</experience>
+            </lawyer>
+            <lawyer>
+                <firstname>Lilian</firstname>
+                <lastname>Viex</lastname>
+                <dob>1990-11-05</dob>
+                <experience>3</experience>
+            </lawyer>
+            <lawyer>
+                <firstname>Chris</firstname>
+                <lastname>Novik</lastname>
+                <dob>1968-12-15</dob>
+                <experience>20</experience>
+            </lawyer>
+        </lawyers>
+        <equipments>
+            <equipment id="1">
+                <type>Computer</type>
+                <number>6</number>
+            </equipment>
+            <equipment id="2">
+                <type>Phone</type>
+                <number>9</number>
+            </equipment>
+        </equipments>
+    </office>
+
+    <office>
+    <city>Brest</city>
+        <lawyers>
+            <lawyer>
+                <firstname>Eva</firstname>
+                <lastname>Green</lastname>
+                <dob>1979-01-24</dob>
+                <experience>13</experience>
+            </lawyer>
+            <lawyer>
+                <firstname>Egor</firstname>
+                <lastname>Mig</lastname>
+                <dob>1992-08-02</dob>
+                <experience>1</experience>
+            </lawyer>
+        </lawyers>
+        <equipments>
+            <equipment id="3">
+                <type>Printer</type>
+                <number>2</number>
+            </equipment>
+            <equipment id="4">
+                <type>Phone</type>
+                <number>7</number>
+            </equipment>
+        </equipments>
+    </office>
+
+    <case contractnumber="27891">
+        <dateofconclusion>2021-07-11</dateofconclusion>
+        <client>
+            <lastname>Melnik</lastname>
+            <casetype>Civil</casetype>
+            <lawyer>
+                <firstname>Egor</firstname>
+                <lastname>Mig</lastname>
+                <dob>1992-08-02</dob>
+                <experience>1</experience>
+            </lawyer>
+        </client>
+    </case>
+    <case contractnumber="59201">
+        <dateofconclusion>2021-05-02</dateofconclusion>
+        <client>
+            <lastname>Subbotko</lastname>
+            <casetype>Criminal</casetype>
+            <lawyer>
+                <firstname>Chris</firstname>
+                <lastname>Novik</lastname>
+                <dob>1968-12-15</dob>
+                <experience>20</experience>
+            </lawyer>
+        </client>
+    </case>
+</lawfirm>
