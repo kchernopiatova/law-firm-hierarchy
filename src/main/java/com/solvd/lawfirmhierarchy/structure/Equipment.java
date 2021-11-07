@@ -2,15 +2,30 @@ package com.solvd.lawfirmhierarchy.structure;
 
 public class Equipment {
 
-    private Integer id;
+    private String id;
     private String type;
     private Integer number;
 
-    public Integer getId() {
+    public Equipment(String id, String type, Integer number) {
+        this.id = id;
+        this.type = type;
+        this.number = number;
+    }
+
+    @Override
+    public String toString() {
+        return "Equipment{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", number=" + number +
+                '}';
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

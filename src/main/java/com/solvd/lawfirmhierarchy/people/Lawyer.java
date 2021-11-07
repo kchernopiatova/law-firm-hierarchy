@@ -9,6 +9,23 @@ public class Lawyer {
     private LocalDate dob;
     private Integer experience;
 
+    public Lawyer(String firstName, String lastName, LocalDate dob, Integer experience) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = dob;
+        this.experience = experience;
+    }
+
+    @Override
+    public String toString() {
+        return "Lawyer{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dob=" + dob +
+                ", experience=" + experience +
+                '}';
+    }
+
     public String getFirstName() {
         return firstName;
     }
