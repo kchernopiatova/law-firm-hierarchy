@@ -1,8 +1,9 @@
 package com.solvd.lawfirmhierarchy.parsing;
 
 import com.solvd.lawfirmhierarchy.LawFirm;
-import org.w3c.dom.Document;
+
+import java.io.File;
 
 public interface Parsable {
-    LawFirm parse(Document doc);
+    LawFirm parse(File file);
 }

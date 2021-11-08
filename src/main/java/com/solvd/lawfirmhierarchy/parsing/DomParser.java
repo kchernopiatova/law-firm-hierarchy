@@ -1,28 +1,44 @@
-package com.solvd.lawfirmhierarchy.parsing.domparsing;
+package com.solvd.lawfirmhierarchy.parsing;
 
 import com.solvd.lawfirmhierarchy.LawFirm;
+import com.solvd.lawfirmhierarchy.MainClass;
 import com.solvd.lawfirmhierarchy.cases.Case;
-import com.solvd.lawfirmhierarchy.parsing.Parsable;
 import com.solvd.lawfirmhierarchy.people.Client;
 import com.solvd.lawfirmhierarchy.people.Lawyer;
 import com.solvd.lawfirmhierarchy.structure.Equipment;
 import com.solvd.lawfirmhierarchy.structure.Office;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DomParsingImpl implements Parsable {
+public class DomParser implements Parsable {
+
+    private static final Logger LOGGER = LogManager.getLogger(MainClass.class);
 
     @Override
-    public LawFirm parse(Document doc) {
+    public LawFirm parse(File file) {
+
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        Document doc = null;
+        try {
+            doc = dbf.newDocumentBuilder().parse(file);
+        } catch (SAXException | IOException | ParserConfigurationException e) {
+            LOGGER.info(e.getMessage());
+        }
 
         LawFirm lawFirm = new LawFirm();
-
 
         //firm parsing
         Node firm = doc.getFirstChild();

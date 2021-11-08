@@ -1,10 +1,10 @@
 package com.solvd.lawfirmhierarchy;
 
-import com.solvd.lawfirmhierarchy.parsing.domparsing.DocumentBuilding;
-import com.solvd.lawfirmhierarchy.parsing.domparsing.DomParsingImpl;
+import com.solvd.lawfirmhierarchy.parsing.DomParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.w3c.dom.Document;
+
+import java.io.File;
 
 public class MainClass {
 
@@ -12,9 +12,10 @@ public class MainClass {
 
     public static void main(String[] args) {
 
-        Document doc = DocumentBuilding.buildDocument();
-        DomParsingImpl domParsing = new DomParsingImpl();
-        LawFirm lawFirm = domParsing.parse(doc);
+        File file = new File("src/main/resources/lawfirmdata.xml");
+
+        DomParser domParsing = new DomParser();
+        LawFirm lawFirm = domParsing.parse(file);
         LOGGER.info(lawFirm);
     }
 }
