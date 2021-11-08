@@ -13,7 +13,7 @@ public class LawFirm {
 
     @Override
     public String toString() {
-        return "LawFirm{" +
+        return "\nLawFirm{" +
                 "firmName='" + firmName + '\'' +
                 ", offices=" + offices +
                 ", cases=" + cases +

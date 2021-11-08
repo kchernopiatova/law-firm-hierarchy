@@ -6,6 +6,15 @@ public class Client {
     private String caseType;
     private Lawyer lawyer;
 
+    @Override
+    public String toString() {
+        return "\nClient{" +
+                "lastName='" + lastName + '\'' +
+                ", caseType='" + caseType + '\'' +
+                ", lawyer=" + lawyer +
+                '}';
+    }
+
     public String getLastName() {
         return lastName;
     }

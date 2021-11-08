@@ -14,7 +14,7 @@ public class Equipment {
 
     @Override
     public String toString() {
-        return "Equipment{" +
+        return "\nEquipment{" +
                 "id=" + id +
                 ", type='" + type + '\'' +
                 ", number=" + number +

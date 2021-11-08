@@ -18,7 +18,7 @@ public class Lawyer {
 
     @Override
     public String toString() {
-        return "Lawyer{" +
+        return "\nLawyer{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", dob=" + dob +

@@ -1,7 +1,6 @@
 package com.solvd.lawfirmhierarchy.structure;
 
 import com.solvd.lawfirmhierarchy.people.Lawyer;
-
 import java.util.List;
 
 public class Office {
@@ -12,7 +11,7 @@ public class Office {
 
     @Override
     public String toString() {
-        return "Office{" +
+        return "\nOffice{" +
                 "city='" + city + '\'' +
                 ", lawyers=" + lawyers +
                 ", equipment=" + equipment +
