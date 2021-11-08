@@ -22,7 +22,6 @@ public class MainClass {
         OfficeParsing officeParsing = new OfficeParsing();
         officeParsing.officeParse(firstOffice,doc);
 
-
-        System.out.println(firstOffice);
+        LOGGER.info(firstOffice);
     }
 }
