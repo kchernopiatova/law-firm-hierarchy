@@ -94,17 +94,14 @@ public class OfficeParsing {
                 continue;
             }
             if (equipmentsNode.item(i).getNodeName().equals("equipment")) {
+                NamedNodeMap attributes = equipmentsNode.item(i).getAttributes();
+                id = attributes.getNamedItem("id").getNodeValue();
                 NodeList equipmentChilds = equipmentsNode.item(i).getChildNodes();
                 for (int j = 0; j < equipmentChilds.getLength(); j++) {
                     if (equipmentsNode.item(i).getNodeType() != Node.ELEMENT_NODE) {
                         continue;
                     }
                     switch (equipmentChilds.item(j).getNodeName()) {
-                        case "id": {
-                            NamedNodeMap attributes = equipmentsNode.item(j).getAttributes();
-                            id = attributes.getNamedItem("id").getNodeValue();
-                            break;
-                        }
                         case "type": {
                             type = equipmentChilds.item(j).getTextContent();
                             break;
