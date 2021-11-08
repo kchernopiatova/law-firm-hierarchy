@@ -1,9 +1,7 @@
 package com.solvd.lawfirmhierarchy;
 
-import com.solvd.lawfirmhierarchy.cases.Case;
 import com.solvd.lawfirmhierarchy.parsing.DocumentBuilding;
-import com.solvd.lawfirmhierarchy.parsing.OfficeParsing;
-import com.solvd.lawfirmhierarchy.structure.Office;
+import com.solvd.lawfirmhierarchy.parsing.DomParsingImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
@@ -16,12 +14,10 @@ public class MainClass {
 
         Document doc = DocumentBuilding.buildDocument();
 
-        Office firstOffice = new Office();
-        Case firstCase = new Case();
+        DomParsingImpl domParsing = new DomParsingImpl();
 
-        OfficeParsing officeParsing = new OfficeParsing();
-        officeParsing.officeParse(firstOffice,doc);
+        LawFirm lawFirm = domParsing.parse(doc);
 
-        LOGGER.info(firstOffice);
+        LOGGER.info(lawFirm);
     }
 }

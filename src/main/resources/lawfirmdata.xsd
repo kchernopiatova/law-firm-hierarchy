@@ -3,6 +3,7 @@
     <xs:element name="lawfirm">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="firmname" type="xs:string"/>
                 <xs:element name="office" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>

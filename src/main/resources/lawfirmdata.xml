@@ -1,5 +1,6 @@
 <lawfirm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="lawfirmdata.xsd">
+    <firmname>Juris Civilis</firmname>
     <office>
         <city>Minsk</city>
         <lawyers>
@@ -33,7 +34,6 @@
             </equipment>
         </equipments>
     </office>
-
     <case contractnumber="27891">
         <dateofconclusion>2021-07-11</dateofconclusion>
         <client>
