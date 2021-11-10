@@ -1,12 +1,25 @@
 package com.solvd.lawfirmhierarchy.cases;
 
+import com.solvd.lawfirmhierarchy.parsing.adapters.ClientAdapter;
+import com.solvd.lawfirmhierarchy.parsing.adapters.DateAdapter;
 import com.solvd.lawfirmhierarchy.people.Client;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Case {
 
+    @XmlAttribute(name = "contractnumber")
     private String contractNumber;
+    @XmlElement(name = "dateofconclusion")
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private LocalDate dateOfConclusion;
+    @XmlJavaTypeAdapter(ClientAdapter.class)
     private Client client;
 
     @Override

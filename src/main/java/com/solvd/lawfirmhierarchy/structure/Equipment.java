@@ -1,7 +1,13 @@
 package com.solvd.lawfirmhierarchy.structure;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Equipment {
 
+    @XmlAttribute(name = "id")
     private String id;
     private String type;
     private Integer number;
@@ -10,6 +16,9 @@ public class Equipment {
         this.id = id;
         this.type = type;
         this.number = number;
+    }
+
+    public Equipment() {
     }
 
     @Override

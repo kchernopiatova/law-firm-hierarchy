@@ -106,76 +106,14 @@ public class DomParser implements Parsable {
 
         //lawyer parsing
         NodeList lawyersNode = lawyerNode[0].getChildNodes();
-        List<Node> lawyersChildList;
-
-        final String[] firstName = {null};
-        final String[] lastName = {null};
-        final LocalDate[] dob = {null};
-        final Integer[] experience = {null};
-
-        for (int i = 0; i < lawyersNode.getLength(); i++) {
-            if (lawyersNode.item(i).getNodeType() != Node.ELEMENT_NODE) continue;
-            if (lawyersNode.item(i).getNodeName().equals("lawyer")) {
-                NodeList lawyerChildNode = lawyersNode.item(i).getChildNodes();
-                lawyersChildList = nodeListToList(lawyerChildNode);
-                lawyersChildList
-                        .forEach(node -> {
-                            switch (node.getNodeName()) {
-                                case "firstname": {
-                                    firstName[0] = node.getTextContent();
-                                    break;
-                                }
-                                case "lastname": {
-                                    lastName[0] = node.getTextContent();
-                                    break;
-                                }
-                                case "dob": {
-                                    dob[0] = LocalDate.parse(node.getTextContent());
-                                    break;
-                                }
-                                case "experience": {
-                                    experience[0] = Integer.valueOf(node.getTextContent());
-                                    break;
-                                }
-                            }
-                        });
-                Lawyer lawyer = new Lawyer(firstName[0], lastName[0], dob[0], experience[0]);
-                lawyers.add(lawyer);
-            }
-        }
+        Lawyer lawyer = lawyerParse(lawyersNode);
+        lawyers.add(lawyer);
         office.setLawyers(lawyers);
 
         //equipment parsing
         NodeList equipmentsNode = equipmentNode[0].getChildNodes();
-        List<Node> equipmentsChildList;
-
-        String id;
-        final String[] type = {null};
-        final Integer[] number = {null};
-
-        for (int i = 0; i < equipmentsNode.getLength(); i++) {
-            if (equipmentsNode.item(i).getNodeType() != Node.ELEMENT_NODE) continue;
-            if (equipmentsNode.item(i).getNodeName().equals("equipment")) {
-                NamedNodeMap attributes = equipmentsNode.item(i).getAttributes();
-                id = attributes.getNamedItem("id").getNodeValue();
-                NodeList equipmentChildNode = equipmentsNode.item(i).getChildNodes();
-                equipmentsChildList = nodeListToList(equipmentChildNode);
-                equipmentsChildList.forEach(node -> {
-                    switch (node.getNodeName()) {
-                        case "type": {
-                            type[0] = node.getTextContent();
-                            break;
-                        }
-                        case "number": {
-                            number[0] = Integer.valueOf(node.getTextContent());
-                            break;
-                        }
-                    }
-                });
-                Equipment equipment = new Equipment(id, type[0], number[0]);
-                equipments.add(equipment);
-            }
-        }
+        Equipment equipment = equipmentParse(equipmentsNode);
+        equipments.add(equipment);
         office.setEquipment(equipments);
         offices.add(office);
 
@@ -195,7 +133,9 @@ public class DomParser implements Parsable {
         caseChildList = nodeListToList(caseChildNodes);
 
         caseChildList
-                .forEach(node -> {
+                .forEach(node ->
+
+                {
                     switch (node.getNodeName()) {
                         case "dateofconclusion": {
                             dateOfConclusion[0] = LocalDate.parse(node.getTextContent());
@@ -210,9 +150,108 @@ public class DomParser implements Parsable {
         firstCase.setDateOfConclusion(dateOfConclusion[0]);
 
         //client parsing
-        Client client = new Client();
-
         NodeList clientsNode = clientNode[0].getChildNodes();
+        Client client = clientParse(clientsNode);
+        firstCase.setClient(client);
+        cases.add(firstCase);
+        lawFirm.setOffices(offices);
+        lawFirm.setCases(cases);
+        return lawFirm;
+    }
+
+    public static List<Node> nodeListToList(NodeList nodeList) {
+        List<Node> nodes = new ArrayList<>();
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            if (nodeList.item(i).getNodeType() == Node.ELEMENT_NODE) {
+                nodes.add(nodeList.item(i));
+            }
+        }
+        return nodes;
+    }
+
+    private Lawyer lawyerParse(NodeList lawyersNode) {
+        List<Node> lawyersChildList;
+        Lawyer lawyer = new Lawyer();
+
+        final String[] firstName = {null};
+        final String[] lastName = {null};
+        final LocalDate[] dob = {null};
+        final Integer[] experience = {null};
+        List<Node> lawyersNodeList = nodeListToList(lawyersNode);
+
+        for (Node item : lawyersNodeList) {
+            if (item.getNodeType() != Node.ELEMENT_NODE) continue;
+            if (item.getNodeName().equals("lawyer")) {
+                NodeList lawyerChildNode = item.getChildNodes();
+                lawyersChildList = nodeListToList(lawyerChildNode);
+                lawyersChildList
+                        .forEach(node -> {
+                            switch (node.getNodeName()) {
+                                case "firstname": {
+                                    firstName[0] = node.getTextContent();
+                                    lawyer.setFirstName(firstName[0]);
+                                    break;
+                                }
+                                case "lastname": {
+                                    lastName[0] = node.getTextContent();
+                                    lawyer.setLastName(lastName[0]);
+                                    break;
+                                }
+                                case "dob": {
+                                    dob[0] = LocalDate.parse(node.getTextContent());
+                                    lawyer.setDob(dob[0]);
+                                    break;
+                                }
+                                case "experience": {
+                                    experience[0] = Integer.valueOf(node.getTextContent());
+                                    lawyer.setExperience(experience[0]);
+                                    break;
+                                }
+                            }
+                        });
+            }
+        }
+        return lawyer;
+    }
+
+    private Equipment equipmentParse(NodeList equipmentsNode) {
+        List<Node> equipmentsList = nodeListToList(equipmentsNode);
+        List<Node> equipmentsChildList;
+        Equipment equipment = new Equipment();
+        String id;
+        final String[] type = {null};
+        final Integer[] number = {null};
+
+        for (
+                Node item : equipmentsList) {
+            if (item.getNodeType() != Node.ELEMENT_NODE) continue;
+            if (item.getNodeName().equals("equipment")) {
+                NamedNodeMap attributes = item.getAttributes();
+                id = attributes.getNamedItem("id").getNodeValue();
+                equipment.setId(id);
+                NodeList equipmentChildNode = item.getChildNodes();
+                equipmentsChildList = nodeListToList(equipmentChildNode);
+                equipmentsChildList.forEach(node -> {
+                    switch (node.getNodeName()) {
+                        case "type": {
+                            type[0] = node.getTextContent();
+                            equipment.setType(type[0]);
+                            break;
+                        }
+                        case "number": {
+                            number[0] = Integer.valueOf(node.getTextContent());
+                            equipment.setNumber(number[0]);
+                            break;
+                        }
+                    }
+                });
+            }
+        }
+        return equipment;
+    }
+
+    private Client clientParse(NodeList clientsNode) {
+        Client client = new Client();
         List<Node> clientChildList;
         clientChildList = nodeListToList(clientsNode);
 
@@ -220,7 +259,8 @@ public class DomParser implements Parsable {
         final String[] caseType = {null};
         final Node[] clientLawyerNode = {null};
 
-        clientChildList.forEach(node -> {
+        clientChildList.forEach(node ->
+        {
             switch (node.getNodeName()) {
                 case "lastname": {
                     clientName[0] = node.getTextContent();
@@ -238,46 +278,9 @@ public class DomParser implements Parsable {
                 }
             }
         });
-
-        //client lawyer parsing
         NodeList clientLawyerChildNode = clientLawyerNode[0].getChildNodes();
-        List<Node> clientLawyerChildList = nodeListToList(clientLawyerChildNode);
-        clientLawyerChildList.forEach(node -> {
-            switch (node.getNodeName()) {
-                case "firstname": {
-                    firstName[0] = node.getTextContent();
-                    break;
-                }
-                case "lastname": {
-                    lastName[0] = node.getTextContent();
-                    break;
-                }
-                case "dob": {
-                    dob[0] = LocalDate.parse(node.getTextContent());
-                    break;
-                }
-                case "experience": {
-                    experience[0] = Integer.valueOf(node.getTextContent());
-                    break;
-                }
-            }
-        });
-        Lawyer clientLawyer = new Lawyer(firstName[0], lastName[0], dob[0], experience[0]);
+        Lawyer clientLawyer = lawyerParse(clientLawyerChildNode);
         client.setLawyer(clientLawyer);
-        firstCase.setClient(client);
-        cases.add(firstCase);
-        lawFirm.setOffices(offices);
-        lawFirm.setCases(cases);
-        return lawFirm;
-    }
-
-    public static List<Node> nodeListToList(NodeList nodeList) {
-        List<Node> nodes = new ArrayList<>();
-        for (int i = 0; i < nodeList.getLength(); i++) {
-            if (nodeList.item(i).getNodeType() == Node.ELEMENT_NODE) {
-                nodes.add(nodeList.item(i));
-            }
-        }
-        return nodes;
+        return client;
     }
 }

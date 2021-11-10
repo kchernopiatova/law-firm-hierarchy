@@ -1,9 +1,20 @@
 package com.solvd.lawfirmhierarchy.people;
 
+import com.solvd.lawfirmhierarchy.parsing.adapters.LawyerAdapter;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Client {
 
+    @XmlElement(name = "lastname")
     private String lastName;
+    @XmlElement(name = "casetype")
     private String caseType;
+    @XmlJavaTypeAdapter(LawyerAdapter.class)
     private Lawyer lawyer;
 
     @Override

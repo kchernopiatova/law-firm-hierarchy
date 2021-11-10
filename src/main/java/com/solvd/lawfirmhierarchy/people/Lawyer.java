@@ -1,11 +1,21 @@
 package com.solvd.lawfirmhierarchy.people;
 
+import com.solvd.lawfirmhierarchy.parsing.adapters.DateAdapter;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Lawyer {
 
+    @XmlElement(name = "firstname")
     private String firstName;
+    @XmlElement(name = "lastname")
     private String lastName;
+    @XmlJavaTypeAdapter(DateAdapter.class)
     private LocalDate dob;
     private Integer experience;
 
@@ -14,6 +24,9 @@ public class Lawyer {
         this.lastName = lastName;
         this.dob = dob;
         this.experience = experience;
+    }
+
+    public Lawyer() {
     }
 
     @Override

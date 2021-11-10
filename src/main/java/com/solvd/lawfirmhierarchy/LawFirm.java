@@ -1,14 +1,24 @@
 package com.solvd.lawfirmhierarchy;
 
 import com.solvd.lawfirmhierarchy.cases.Case;
+import com.solvd.lawfirmhierarchy.parsing.adapters.CaseAdapter;
+import com.solvd.lawfirmhierarchy.parsing.adapters.OfficeAdapter;
 import com.solvd.lawfirmhierarchy.structure.Office;
 
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.List;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "lawfirm")
 public class LawFirm {
 
+    @XmlElement(name = "firmname")
     private String firmName;
+    @XmlJavaTypeAdapter(OfficeAdapter.class)
+    @XmlElement(name = "office")
     private List<Office> offices;
+    @XmlJavaTypeAdapter(CaseAdapter.class)
     private List<Case> cases;
 
     @Override
