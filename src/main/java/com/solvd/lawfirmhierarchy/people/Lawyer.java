@@ -1,6 +1,6 @@
 package com.solvd.lawfirmhierarchy.people;
 
-import com.solvd.lawfirmhierarchy.parsing.adapters.DateAdapter;
+import com.solvd.lawfirmhierarchy.parsing.DateAdapter;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -27,16 +27,16 @@ public class Lawyer {
     }
 
     public Lawyer() {
+
     }
 
     @Override
     public String toString() {
-        return "\nLawyer{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", dob=" + dob +
-                ", experience=" + experience +
-                '}';
+        return "\nLawyer: " +
+                "firstName = " + firstName +
+                ", lastName = " + lastName +
+                ", dob = " + dob +
+                ", experience = " + experience;
     }
 
     public String getFirstName() {

@@ -1,4 +1,4 @@
-package com.solvd.lawfirmhierarchy.parsing.adapters;
+package com.solvd.lawfirmhierarchy.parsing;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.time.LocalDate;

@@ -19,15 +19,15 @@ public class Equipment {
     }
 
     public Equipment() {
+
     }
 
     @Override
     public String toString() {
-        return "\nEquipment{" +
-                "id=" + id +
-                ", type='" + type + '\'' +
-                ", number=" + number +
-                '}';
+        return "\nEquipment: " +
+                "id = " + id +
+                ", type = " + type +
+                ", number = " + number;
     }
 
     public String getId() {

@@ -1,7 +1,6 @@
 package com.solvd.lawfirmhierarchy.cases;
 
-import com.solvd.lawfirmhierarchy.parsing.adapters.ClientAdapter;
-import com.solvd.lawfirmhierarchy.parsing.adapters.DateAdapter;
+import com.solvd.lawfirmhierarchy.parsing.DateAdapter;
 import com.solvd.lawfirmhierarchy.people.Client;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -16,19 +15,17 @@ public class Case {
 
     @XmlAttribute(name = "contractnumber")
     private String contractNumber;
-    @XmlElement(name = "dateofconclusion")
     @XmlJavaTypeAdapter(DateAdapter.class)
+    @XmlElement(name = "dateofconclusion")
     private LocalDate dateOfConclusion;
-    @XmlJavaTypeAdapter(ClientAdapter.class)
     private Client client;
 
     @Override
     public String toString() {
-        return "\nCase{" +
-                "contractNumber='" + contractNumber + '\'' +
-                ", dateOfConclusion=" + dateOfConclusion +
-                ", client=" + client +
-                '}';
+        return "\nCase: " +
+                "contractNumber = " + contractNumber +
+                ", dateOfConclusion = " + dateOfConclusion +
+                ", client = " + client;
     }
 
     public String getContractNumber() {

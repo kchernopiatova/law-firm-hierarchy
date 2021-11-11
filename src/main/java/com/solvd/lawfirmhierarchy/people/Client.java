@@ -1,11 +1,8 @@
 package com.solvd.lawfirmhierarchy.people;
 
-import com.solvd.lawfirmhierarchy.parsing.adapters.LawyerAdapter;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Client {
@@ -14,16 +11,14 @@ public class Client {
     private String lastName;
     @XmlElement(name = "casetype")
     private String caseType;
-    @XmlJavaTypeAdapter(LawyerAdapter.class)
     private Lawyer lawyer;
 
     @Override
     public String toString() {
-        return "\nClient{" +
-                "lastName='" + lastName + '\'' +
-                ", caseType='" + caseType + '\'' +
-                ", lawyer=" + lawyer +
-                '}';
+        return "\nClient: " +
+                "lastName = " + lastName +
+                ", caseType = " + caseType +
+                ", lawyer = " + lawyer;
     }
 
     public String getLastName() {
