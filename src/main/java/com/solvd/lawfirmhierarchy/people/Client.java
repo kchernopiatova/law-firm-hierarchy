@@ -1,10 +1,25 @@
-package com.solvd.lawfirmhierarchy;
+package com.solvd.lawfirmhierarchy.people;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Client {
 
+    @XmlElement(name = "lastname")
     private String lastName;
+    @XmlElement(name = "casetype")
     private String caseType;
     private Lawyer lawyer;
+
+    @Override
+    public String toString() {
+        return "\nClient: " +
+                "lastName = " + lastName +
+                ", caseType = " + caseType +
+                ", lawyer = " + lawyer;
+    }
 
     public String getLastName() {
         return lastName;
