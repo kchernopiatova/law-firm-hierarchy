@@ -1,5 +1,7 @@
 package com.solvd.lawfirmhierarchy.people;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -8,8 +10,10 @@ import javax.xml.bind.annotation.XmlElement;
 public class Client {
 
     @XmlElement(name = "lastname")
+    @JsonProperty("lastname")
     private String lastName;
     @XmlElement(name = "casetype")
+    @JsonProperty("casetype")
     private String caseType;
     private Lawyer lawyer;
 

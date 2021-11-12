@@ -1,9 +1,9 @@
 {
   "firmname": "Juris Civilis",
-  "offices": [
+  "office": [
     {
       "city": "Minsk",
-      "lawyers": [
+      "lawyer": [
         {
           "firstname": "Alexei",
           "lastname": "Kievets",
@@ -23,7 +23,7 @@
           "experience": 20
         }
       ],
-      "equipments": [
+      "equipment": [
         {
           "id": "1",
           "type": "Computer",
@@ -37,7 +37,7 @@
       ]
     }
   ],
-  "cases": [
+  "case": [
     {
       "contractnumber": 27891,
       "dateofconclusion": "2021-07-11",

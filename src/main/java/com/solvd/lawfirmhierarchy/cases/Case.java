@@ -1,6 +1,10 @@
 package com.solvd.lawfirmhierarchy.cases;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.solvd.lawfirmhierarchy.parsing.DateAdapter;
+import com.solvd.lawfirmhierarchy.parsing.DateDeserialize;
 import com.solvd.lawfirmhierarchy.people.Client;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -14,9 +18,12 @@ import java.time.LocalDate;
 public class Case {
 
     @XmlAttribute(name = "contractnumber")
+    @JsonProperty("contractnumber")
     private String contractNumber;
     @XmlJavaTypeAdapter(DateAdapter.class)
     @XmlElement(name = "dateofconclusion")
+    @JsonDeserialize(using = DateDeserialize.class)
+    @JsonProperty("dateofconclusion")
     private LocalDate dateOfConclusion;
     private Client client;
 

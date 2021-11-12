@@ -1,6 +1,9 @@
 package com.solvd.lawfirmhierarchy.people;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.solvd.lawfirmhierarchy.parsing.DateAdapter;
+import com.solvd.lawfirmhierarchy.parsing.DateDeserialize;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -12,10 +15,13 @@ import java.time.LocalDate;
 public class Lawyer {
 
     @XmlElement(name = "firstname")
+    @JsonProperty("firstname")
     private String firstName;
     @XmlElement(name = "lastname")
+    @JsonProperty("lastname")
     private String lastName;
     @XmlJavaTypeAdapter(DateAdapter.class)
+    @JsonDeserialize(using = DateDeserialize.class)
     private LocalDate dob;
     private Integer experience;
 

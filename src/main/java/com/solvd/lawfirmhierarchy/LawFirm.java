@@ -1,5 +1,6 @@
 package com.solvd.lawfirmhierarchy;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.solvd.lawfirmhierarchy.cases.Case;
 import com.solvd.lawfirmhierarchy.structure.Office;
 
@@ -11,12 +12,15 @@ import java.util.List;
 public class LawFirm {
 
     @XmlElement(name = "firmname")
+    @JsonProperty("firmname")
     private String firmName;
     @XmlElementWrapper(name = "offices")
     @XmlElement(name = "office")
+    @JsonProperty("office")
     private List<Office> offices;
     @XmlElementWrapper(name = "cases")
     @XmlElement(name = "case")
+    @JsonProperty("case")
     private List<Case> cases;
 
     @Override
