@@ -1,0 +1,58 @@
+{
+  "firmname": "Juris Civilis",
+  "offices": [
+    {
+      "city": "Minsk",
+      "lawyers": [
+        {
+          "firstname": "Alexei",
+          "lastname": "Kievets",
+          "dob": "1985-07-20",
+          "experience": 9
+        },
+        {
+          "firstname": "Lilian",
+          "lastname": "Viex",
+          "dob": "1990-11-05",
+          "experience": 3
+        },
+        {
+          "firstname": "Chris",
+          "lastname": "Novik",
+          "dob": "1968-12-15",
+          "experience": 20
+        }
+      ],
+      "equipments": [
+        {
+          "id": "1",
+          "type": "Computer",
+          "number": 6
+        },
+        {
+          "id": "2",
+          "type": "Phone",
+          "number": 9
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "contractnumber": 27891,
+      "dateofconclusion": "2021-07-11",
+      "client":
+      {
+        "lastname": "Melnik",
+        "casetype": "Civil",
+        "lawyer":
+        {
+          "firstname": "Egor",
+          "lastname": "Mig",
+          "dob": "1992-08-02",
+          "experience": 1
+        }
+      }
+    }
+  ]
+}

@@ -3,7 +3,6 @@ package com.solvd.lawfirmhierarchy;
 import com.solvd.lawfirmhierarchy.parsing.DomParser;
 import com.solvd.lawfirmhierarchy.parsing.JaxbParser;
 import com.solvd.lawfirmhierarchy.parsing.Parsable;
-import com.solvd.lawfirmhierarchy.structure.Office;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
