@@ -1,6 +1,5 @@
 package com.solvd.lawfirmhierarchy.cases;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.solvd.lawfirmhierarchy.parsing.DateAdapter;
