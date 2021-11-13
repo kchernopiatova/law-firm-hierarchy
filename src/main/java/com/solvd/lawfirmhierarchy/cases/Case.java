@@ -19,6 +19,7 @@ public class Case {
     @XmlAttribute(name = "contractnumber")
     @JsonProperty("contractnumber")
     private String contractNumber;
+
     @XmlJavaTypeAdapter(DateAdapter.class)
     @XmlElement(name = "dateofconclusion")
     @JsonDeserialize(using = DateDeserialize.class)

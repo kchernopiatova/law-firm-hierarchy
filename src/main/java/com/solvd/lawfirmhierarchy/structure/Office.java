@@ -13,21 +13,22 @@ import java.util.List;
 public class Office {
 
     private String city;
+
     @XmlElementWrapper(name = "lawyers")
     @XmlElement(name = "lawyer")
-    @JsonProperty("lawyer")
     private List<Lawyer> lawyers;
+
     @XmlElementWrapper(name = "equipments")
     @XmlElement(name = "equipment")
-    @JsonProperty("equipment")
-    private List<Equipment> equipment;
+    @JsonProperty("equipments")
+    private List<Equipment> equipments;
 
     @Override
     public String toString() {
         return "\nOffice: " +
                 "city = " + city +
                 ", lawyers = " + lawyers +
-                ", equipment = " + equipment;
+                ", equipment = " + equipments;
     }
 
     public String getCity() {
@@ -47,10 +48,10 @@ public class Office {
     }
 
     public List<Equipment> getEquipment() {
-        return equipment;
+        return equipments;
     }
 
-    public void setEquipment(List<Equipment> equipment) {
-        this.equipment = equipment;
+    public void setEquipment(List<Equipment> equipments) {
+        this.equipments = equipments;
     }
 }

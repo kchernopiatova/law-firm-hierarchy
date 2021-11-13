@@ -12,6 +12,7 @@ public class Client {
     @XmlElement(name = "lastname")
     @JsonProperty("lastname")
     private String lastName;
+
     @XmlElement(name = "casetype")
     @JsonProperty("casetype")
     private String caseType;

@@ -17,9 +17,11 @@ public class Lawyer {
     @XmlElement(name = "firstname")
     @JsonProperty("firstname")
     private String firstName;
+
     @XmlElement(name = "lastname")
     @JsonProperty("lastname")
     private String lastName;
+
     @XmlJavaTypeAdapter(DateAdapter.class)
     @JsonDeserialize(using = DateDeserialize.class)
     private LocalDate dob;
